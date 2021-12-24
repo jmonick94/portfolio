@@ -11,6 +11,11 @@ document.addEventListener('scroll', () => {
         navbar.classList.remove('navbar--dark');
     }
 })
+//Navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector('.navber__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+    navbarMenu.classList.toggle('open');
+});
 
 //Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar_menu');
@@ -20,10 +25,13 @@ navbarMenu.addEventListener('click', (event) => {
     if(link == null){
         return;
     }
+    
+    navbarMenu.classList.remove('open')
     console.log(event.target.dataset.link); 
     const scrollTo = document.querySelector(link);
     scrollIntoView(link);
 });
+
 
 //Handle click on "contact me" button on home
 const homeContactBtn = document.querySelector('.home__contact');
